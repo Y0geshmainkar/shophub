@@ -1,0 +1,65 @@
+[
+  {
+    "product_id": "SH-001",
+    "title": "Classic White Sneakers",
+    "variants": [{ "price": "89.99", "inventory_quantity": 24 }],
+    "status": "active",
+    "product_type": "Footwear",
+    "images": [{ "src": "https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=400" }],
+    "body_html": "<p>Premium leather sneakers with cushioned sole.</p>",
+    "sourceSystem": "Shopify"
+  },
+  {
+    "product_id": "SH-002",
+    "title": "Wireless Noise-Cancelling Headphones",
+    "variants": [{ "price": "249.00", "inventory_quantity": 8 }],
+    "status": "active",
+    "product_type": "Electronics",
+    "images": [{ "src": "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=400" }],
+    "body_html": "<p>40-hour battery life, premium sound quality.</p>",
+    "sourceSystem": "Shopify"
+  },
+  {
+    "product_id": "SH-003",
+    "title": "Leather Crossbody Bag",
+    "variants": [{ "price": "129.00", "inventory_quantity": 0 }],
+    "status": "active",
+    "product_type": "Accessories",
+    "images": [{ "src": "https://images.unsplash.com/photo-1548036328-c9fa89d128fa?w=400" }],
+    "body_html": "<p>Genuine leather with adjustable strap.</p>",
+    "sourceSystem": "Shopify"
+  },
+  {
+    "itemCode": "ERP-001",
+    "itemName": "Merino Wool Sweater",
+    "unitPrice": 119.00,
+    "stockLevel": 15,
+    "available": true,
+    "category": "Clothing",
+    "imageUrls": ["https://images.unsplash.com/photo-1576566588028-4147f3842f27?w=400"],
+    "description": "100% merino wool, naturally temperature-regulating.",
+    "sourceSystem": "ERP"
+  },
+  {
+    "itemCode": "ERP-002",
+    "itemName": "Stainless Steel Water Bottle",
+    "unitPrice": 34.99,
+    "stockLevel": 50,
+    "available": true,
+    "category": "Accessories",
+    "imageUrls": ["https://images.unsplash.com/photo-1602143407151-7111542de6e8?w=400"],
+    "description": "Double-wall insulated, keeps drinks cold 24h.",
+    "sourceSystem": "ERP"
+  },
+  {
+    "itemCode": "ERP-003",
+    "itemName": "Yoga Mat Pro",
+    "unitPrice": 68.00,
+    "stockLevel": 30,
+    "available": true,
+    "category": "Sports",
+    "imageUrls": ["https://images.unsplash.com/photo-1601925228008-bb6d04b4c8d7?w=400"],
+    "description": "Non-slip surface, 6mm thick, eco-friendly materials.",
+    "sourceSystem": "ERP"
+  }
+]
