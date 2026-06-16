@@ -10,5 +10,7 @@ export interface Product {
   category: string;
   images: string[];
   description: string;
+  rating: number;
+  reviewCount: number;
   sourceSystem: SourceSystem;
 }

@@ -1,0 +1,154 @@
+@use '../../styles/tokens' as *;
+
+.card {
+  display: flex;
+  flex-direction: column;
+  background: $white;
+
+  &:hover .addToCart { opacity: 1; }
+  &:hover .actions { opacity: 1; }
+}
+
+// ── Image area ────────────────────────────────────────────────────────────
+.imageWrap {
+  position: relative;
+  background: $off-white;
+  border-radius: $radius-sm;
+  overflow: hidden;
+  aspect-ratio: 1;
+  margin-bottom: $space-sm;
+}
+
+.image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+
+  .card:hover & { transform: scale(1.04); }
+}
+
+.placeholder {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 48px;
+}
+
+// ── Badges ────────────────────────────────────────────────────────────────
+.badge {
+  position: absolute;
+  top: $space-sm;
+  left: $space-sm;
+  padding: 4px 10px;
+  background: $primary;
+  color: $white;
+  border-radius: $radius-sm;
+  font-size: 12px;
+  font-weight: 600;
+  z-index: 1;
+}
+
+.badgeOos {
+  background: $dark2;
+}
+
+// ── Hover actions (wishlist + eye) ────────────────────────────────────────
+.actions {
+  position: absolute;
+  top: $space-sm;
+  right: $space-sm;
+  display: flex;
+  flex-direction: column;
+  gap: $space-xs;
+  opacity: 0;
+  transition: opacity 0.2s;
+}
+
+.actionBtn {
+  width: 34px;
+  height: 34px;
+  background: $white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: $dark;
+  box-shadow: $shadow-card;
+  transition: background 0.15s, color 0.15s;
+  text-decoration: none;
+
+  &:hover { background: $primary; color: $white; }
+  &:focus-visible { outline: $focus-outline; outline-offset: $focus-outline-offset; }
+}
+
+// ── Add to Cart (bottom of image, hover reveal) ────────────────────────────
+.addToCart {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 10px;
+  background: $dark;
+  color: $white;
+  font-size: 13px;
+  font-weight: 500;
+  text-align: center;
+  opacity: 0;
+  transition: opacity 0.2s, background 0.15s;
+
+  &:hover { background: $primary; }
+  &:disabled { background: $slate-mid; cursor: not-allowed; }
+  &:focus-visible { outline: $focus-outline; outline-offset: -2px; }
+}
+
+// ── Body ──────────────────────────────────────────────────────────────────
+.body {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.name {
+  font-size: 14px;
+  font-weight: 500;
+  color: $dark;
+  line-height: 1.3;
+
+  &:hover { color: $primary; }
+}
+
+.priceRow {
+  display: flex;
+  align-items: center;
+  gap: $space-sm;
+}
+
+.price {
+  font-size: 14px;
+  font-weight: 700;
+  color: $primary;
+}
+
+.originalPrice {
+  font-size: 13px;
+  color: $slate-mid;
+  text-decoration: line-through;
+}
+
+.ratingRow {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.stars { display: flex; }
+.starOn  { color: $star; font-size: 13px; }
+.starOff { color: #ddd; font-size: 13px; }
+
+.reviewCount {
+  font-size: 12px;
+  color: $slate-mid;
+}

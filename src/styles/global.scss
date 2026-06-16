@@ -1,6 +1,6 @@
 @use 'tokens' as *;
 
-@import url('https://fonts.googleapis.com/css2?family=Lora:wght@400;600;700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@400;500;600;700&display=swap');
 
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -8,16 +8,22 @@ html, body, #root { height: 100%; }
 
 body {
   font-family: $font-sans;
-  background: $off-white;
+  background: $white;
   color: $dark;
   font-size: 14px;
   line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
 }
 
+a { text-decoration: none; color: inherit; }
+button { cursor: pointer; border: none; background: none; font-family: inherit; }
+ul, ol { list-style: none; }
+img { max-width: 100%; display: block; }
+
 :focus-visible {
-  outline: 3px solid $orange;
-  outline-offset: 2px;
+  outline: $focus-outline;
+  outline-offset: $focus-outline-offset;
   border-radius: 2px;
 }
 
-h1, h2, h3 { font-family: $font-serif; color: $dark; }
+h1, h2, h3, h4 { font-family: $font-sans; color: $dark; }

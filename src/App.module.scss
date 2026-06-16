@@ -1,0 +1,10 @@
+@use './styles/tokens' as *;
+
+.layout {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: $white;
+}
+
+.content { flex: 1; }

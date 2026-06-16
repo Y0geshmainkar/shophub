@@ -1,0 +1,15 @@
+@use '../../styles/tokens' as *;
+
+.badge {
+  display: inline-block;
+  padding: 4px 12px;
+  border-radius: $radius-pill;
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: capitalize;
+
+  &.pending   { background: rgba(#F5A623, 0.15); color: #D4820A; }
+  &.confirmed { background: rgba(#00A86B, 0.12); color: #007A4D; }
+  &.shipped   { background: rgba(#3B82F6, 0.12); color: #1D6FD8; }
+  &.delivered { background: rgba(#00A86B, 0.2);  color: #005C35; }
+}

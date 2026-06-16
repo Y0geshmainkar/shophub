@@ -1,1 +1,56 @@
-[]
+[
+  {
+    "id": "ORD-2026-00142",
+    "status": "delivered",
+    "placedAt": "2026-06-10T10:30:00Z",
+    "total": 650.00,
+    "sourceSystem": "Shopify",
+    "items": [
+      {
+        "product": {
+          "id": "SH-001", "name": "LCD Monitor", "price": 650.00, "originalPrice": 1160,
+          "stock": 25, "available": true, "category": "Electronics",
+          "images": ["https://cdn.dummyjson.com/products/images/laptops/Apple%20MacBook%20Pro%2014%20Inch%20Space%20Grey/1.webp"],
+          "description": "27-inch LCD monitor", "rating": 4.0, "reviewCount": 88, "sourceSystem": "Shopify"
+        },
+        "quantity": 1
+      }
+    ]
+  },
+  {
+    "id": "ORD-2026-00138",
+    "status": "shipped",
+    "placedAt": "2026-06-08T14:15:00Z",
+    "total": 700.00,
+    "sourceSystem": "ERP",
+    "items": [
+      {
+        "product": {
+          "id": "ERP-003", "name": "ASUS FHD Gaming Laptop", "price": 700.00,
+          "stock": 8, "available": true, "category": "Electronics",
+          "images": ["https://cdn.dummyjson.com/products/images/laptops/Asus%20Zenbook%20Pro%20Dual%20OLED/1.webp"],
+          "description": "15.6\" FHD gaming laptop", "rating": 5.0, "reviewCount": 325, "sourceSystem": "ERP"
+        },
+        "quantity": 1
+      }
+    ]
+  },
+  {
+    "id": "ORD-2026-00130",
+    "status": "confirmed",
+    "placedAt": "2026-06-05T09:00:00Z",
+    "total": 1160.00,
+    "sourceSystem": "ERP",
+    "items": [
+      {
+        "product": {
+          "id": "ERP-006", "name": "Jr. Zoom Soccer Cleats", "price": 1160.00,
+          "stock": 35, "available": true, "category": "Sports & Outdoor",
+          "images": ["https://cdn.dummyjson.com/products/images/mens-shoes/Nike%20Air%20Max%20270/1.webp"],
+          "description": "Lightweight soccer cleats", "rating": 4.7, "reviewCount": 35, "sourceSystem": "ERP"
+        },
+        "quantity": 1
+      }
+    ]
+  }
+]

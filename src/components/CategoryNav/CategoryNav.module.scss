@@ -1,0 +1,41 @@
+@use '../../styles/tokens' as *;
+
+.nav {
+  background: $white;
+  border-bottom: 1px solid $border-color;
+}
+
+.inner {
+  max-width: $container;
+  margin: 0 auto;
+  padding: 0 $space-xl;
+  display: flex;
+  align-items: center;
+  gap: $space-xs;
+  overflow-x: auto;
+  scrollbar-width: none;
+  &::-webkit-scrollbar { display: none; }
+  height: 48px;
+}
+
+.tab {
+  padding: 6px 16px;
+  border-radius: $radius-sm;
+  font-size: 14px;
+  font-weight: 400;
+  color: $dark;
+  background: transparent;
+  white-space: nowrap;
+  flex-shrink: 0;
+  transition: all 0.15s;
+  border-bottom: 2px solid transparent;
+
+  &:hover:not(.active) { color: $primary; }
+  &:focus-visible { outline: $focus-outline; outline-offset: $focus-outline-offset; }
+}
+
+.active {
+  color: $primary;
+  border-bottom-color: $primary;
+  font-weight: 500;
+}

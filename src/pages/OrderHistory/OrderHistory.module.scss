@@ -1,0 +1,59 @@
+@use '../../styles/tokens' as *;
+
+.page { background: $white; min-height: 60vh; }
+
+.container {
+  max-width: $container;
+  margin: 0 auto;
+  padding: $space-lg $space-xl $space-2xl;
+}
+
+.breadcrumb {
+  display: flex;
+  align-items: center;
+  gap: $space-sm;
+  font-size: 13px;
+  color: $slate-mid;
+  margin-bottom: $space-lg;
+
+  a { color: $slate-mid; &:hover { color: $dark; } }
+  span:last-child { color: $dark; }
+}
+
+.title {
+  font-size: 28px;
+  font-weight: 700;
+  color: $dark;
+  margin-bottom: $space-xl;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
+  gap: $space-lg;
+}
+
+.msg      { color: $slate-mid; font-size: 14px; }
+.msgError { color: $primary;   font-size: 14px; }
+
+.empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: $space-md;
+  padding: $space-2xl;
+  font-size: 15px;
+  color: $slate-mid;
+}
+
+.shopBtn {
+  padding: 12px 28px;
+  background: $primary;
+  color: $white;
+  border-radius: $radius-sm;
+  font-size: 14px;
+  font-weight: 500;
+  transition: background 0.15s;
+
+  &:hover { background: $primary-dark; }
+}

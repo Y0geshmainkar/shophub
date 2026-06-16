@@ -1,5 +1,4 @@
 @use '../../styles/tokens' as *;
-@use 'sass:color';
 
 .input {
   height: 48px;
@@ -15,8 +14,8 @@
   transition: border-color 0.15s, box-shadow 0.15s;
 
   &::placeholder { color: $slate-mid; }
-  &:hover  { border-color: $border-color-hover; }
-  &:focus  { border-color: $border-color-focus; box-shadow: 0 0 0 3px rgba($orange, 0.12); }
+  &:hover  { border-color: $primary; }
+  &:focus  { border-color: $primary; box-shadow: 0 0 0 3px rgba($primary, 0.12); }
   &.error  { border-color: $rust; }
   &.mono   { font-family: $font-mono; letter-spacing: 0.08em; }
   &:disabled { background: $off-white; color: $slate-mid; cursor: not-allowed; }
@@ -65,7 +64,7 @@
   border: none;
   border-radius: $radius-sm;
   cursor: pointer;
-  transition: opacity 0.15s, transform 0.1s, box-shadow 0.15s;
+  transition: opacity 0.15s, transform 0.1s;
   white-space: nowrap;
 
   &:focus-visible { outline: $focus-outline; outline-offset: $focus-outline-offset; }
@@ -75,25 +74,24 @@
 
 .btnPrimary {
   @extend .btn;
-  background: $orange;
+  background: $primary;
   color: $white;
-  box-shadow: 0 2px 8px rgba($orange, 0.3);
-  &:hover:not(:disabled) { opacity: 0.92; }
+  &:hover:not(:disabled) { background: $primary-dark; }
 }
 
 .btnSecondary {
   @extend .btn;
   background: $white;
   color: $dark;
-  border: $border-width solid $border-color;
-  &:hover:not(:disabled) { border-color: $orange; color: $orange; }
+  border: 1px solid $border-color;
+  &:hover:not(:disabled) { border-color: $primary; color: $primary; }
 }
 
 .btnGhost {
   @extend .btn;
   background: transparent;
-  color: $orange;
-  &:hover:not(:disabled) { background: rgba($orange, 0.06); }
+  color: $primary;
+  &:hover:not(:disabled) { background: rgba($primary, 0.06); }
 }
 
 .btnFull { width: 100%; }

@@ -1,0 +1,124 @@
+@use '../../styles/tokens' as *;
+
+.footer {
+  background: $off-white;
+  border-top: 1px solid $border-color;
+  margin-top: auto;
+}
+
+.inner {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: $space-xl $space-lg $space-lg;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 2fr;
+  gap: $space-xl;
+  padding-bottom: $space-xl;
+  border-bottom: 1px solid $border-color;
+
+  @media (max-width: 1024px) { grid-template-columns: 1fr 1fr; }
+  @media (max-width: 600px)  { grid-template-columns: 1fr; gap: $space-lg; }
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: $space-sm;
+  margin-bottom: $space-sm;
+  font-size: 20px;
+}
+
+.brandName {
+  font-family: $font-serif;
+  font-size: 20px;
+  font-weight: 700;
+  color: $ink;
+}
+
+.tagline { font-size: 13px; color: $slate-mid; line-height: 1.6; }
+
+.colTitle {
+  font-family: $font-sans;
+  font-size: 14px;
+  font-weight: 700;
+  color: $ink;
+  margin-bottom: $space-md;
+}
+
+.links {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: $space-sm;
+
+  a {
+    font-size: 13px;
+    color: $slate-mid;
+    text-decoration: none;
+    &:hover { color: $ink; }
+  }
+}
+
+.newsletterText { font-size: 13px; color: $slate-mid; margin-bottom: $space-md; line-height: 1.5; }
+
+.subscribe { display: flex; gap: $space-sm; }
+
+.emailInput {
+  flex: 1;
+  height: 40px;
+  padding: 0 $space-md;
+  border: 1.5px solid $border-color;
+  border-radius: $radius-sm;
+  font-size: 13px;
+  font-family: $font-sans;
+  outline: none;
+  background: $white;
+  &:focus { border-color: $ink; }
+  &::placeholder { color: $slate-mid; }
+}
+
+.subscribeBtn {
+  padding: 0 $space-md;
+  height: 40px;
+  background: $ink;
+  color: $white;
+  border: none;
+  border-radius: $radius-sm;
+  font-family: $font-sans;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  white-space: nowrap;
+  &:hover { opacity: 0.85; }
+  &:focus-visible { outline: $focus-outline; outline-offset: $focus-outline-offset; }
+}
+
+.bottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: $space-lg 0 $space-md;
+  flex-wrap: wrap;
+  gap: $space-md;
+}
+
+.contact {
+  display: flex;
+  gap: $space-lg;
+  font-size: 13px;
+  color: $slate-mid;
+  flex-wrap: wrap;
+}
+
+.love { font-size: 13px; color: $slate-mid; }
+
+.copyright {
+  text-align: center;
+  font-size: 12px;
+  color: $slate-mid;
+  padding-top: $space-sm;
+  border-top: 1px solid $border-color;
+}

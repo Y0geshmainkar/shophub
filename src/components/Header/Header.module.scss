@@ -1,0 +1,130 @@
+@use '../../styles/tokens' as *;
+
+.root { background: $white; }
+
+.topBar {
+  background: $dark;
+  color: $white;
+  text-align: center;
+  font-size: 13px;
+  padding: 10px $space-md;
+}
+
+.shopNow {
+  font-weight: 700;
+  text-decoration: underline;
+  margin-left: 6px;
+  color: $white;
+}
+
+.header {
+  border-bottom: 1px solid $border-color;
+}
+
+.inner {
+  max-width: $container;
+  margin: 0 auto;
+  padding: 0 $space-xl;
+  height: $header-height;
+  display: flex;
+  align-items: center;
+  gap: $space-xl;
+}
+
+.logo {
+  font-size: 24px;
+  font-weight: 700;
+  font-style: italic;
+  color: $dark;
+  flex-shrink: 0;
+  letter-spacing: -0.5px;
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+  gap: $space-xl;
+  flex-shrink: 0;
+
+  @media (max-width: 768px) { display: none; }
+}
+
+.navLink {
+  font-size: 14px;
+  font-weight: 400;
+  color: $dark;
+  transition: color 0.15s;
+  padding-bottom: 2px;
+  border-bottom: 2px solid transparent;
+
+  &:hover { border-bottom-color: $primary; }
+}
+
+.searchWrap {
+  flex: 1;
+  max-width: 340px;
+  display: flex;
+  align-items: center;
+  background: $off-white;
+  border-radius: $radius-sm;
+  overflow: hidden;
+  margin-left: auto;
+}
+
+.searchInput {
+  flex: 1;
+  height: 38px;
+  padding: 0 $space-md;
+  background: transparent;
+  border: none;
+  font-size: 13px;
+  color: $dark;
+  outline: none;
+  &::placeholder { color: $slate-mid; }
+}
+
+.searchBtn {
+  padding: 0 $space-md;
+  height: 38px;
+  display: flex;
+  align-items: center;
+  color: $dark;
+  flex-shrink: 0;
+
+  &:hover { color: $primary; }
+}
+
+.actions {
+  display: flex;
+  align-items: center;
+  gap: $space-md;
+  flex-shrink: 0;
+}
+
+.iconBtn {
+  position: relative;
+  display: flex;
+  align-items: center;
+  color: $dark;
+  padding: 4px;
+
+  &:hover { color: $primary; }
+  &:focus-visible { outline: $focus-outline; outline-offset: $focus-outline-offset; border-radius: $radius-sm; }
+}
+
+.badge {
+  position: absolute;
+  top: -4px;
+  right: -6px;
+  min-width: 18px;
+  height: 18px;
+  padding: 0 4px;
+  background: $primary;
+  color: $white;
+  border-radius: $radius-pill;
+  font-size: 11px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

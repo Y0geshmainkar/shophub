@@ -1,0 +1,85 @@
+@use '../../styles/tokens' as *;
+
+.hero {
+  background: $hero-bg;
+  padding: $space-xl 0;
+}
+
+.inner {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 $space-lg;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  gap: $space-xl;
+
+  @media (max-width: 768px) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.content { display: flex; flex-direction: column; gap: $space-md; }
+
+.heading {
+  font-family: $font-sans;
+  font-size: clamp(28px, 4vw, 44px);
+  font-weight: 800;
+  color: $ink;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+}
+
+.sub {
+  font-size: 15px;
+  color: $slate-mid;
+  line-height: 1.6;
+  max-width: 480px;
+}
+
+.actions {
+  display: flex;
+  gap: $space-sm;
+  flex-wrap: wrap;
+  margin-top: $space-xs;
+}
+
+%btn-base {
+  padding: 12px $space-lg;
+  border-radius: $radius-sm;
+  font-family: $font-sans;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  text-decoration: none;
+  transition: opacity 0.15s;
+
+  &:hover { opacity: 0.85; }
+  &:focus-visible { outline: $focus-outline; outline-offset: $focus-outline-offset; }
+}
+
+.btnPrimary {
+  @extend %btn-base;
+  background: $ink;
+  color: $white;
+  border: 2px solid $ink;
+}
+
+.btnSecondary {
+  @extend %btn-base;
+  background: $white;
+  color: $ink;
+  border: 2px solid $ink;
+}
+
+.imageWrap {
+  @media (max-width: 768px) { order: -1; }
+}
+
+.image {
+  width: 100%;
+  border-radius: $radius-lg;
+  object-fit: cover;
+  aspect-ratio: 4/3;
+  display: block;
+}

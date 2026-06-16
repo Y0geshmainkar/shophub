@@ -1,0 +1,18 @@
+{
+  "product_id": "SH-002",
+  "title": "H1 Gamepad",
+  "variants": [{ "price": "650.00", "inventory_quantity": 12 }],
+  "status": "active",
+  "product_type": "Electronics",
+  "images": [
+    { "src": "https://cdn.dummyjson.com/products/images/mobile-accessories/Apple%20AirPods%20Max%20Silver/1.webp" },
+    { "src": "https://cdn.dummyjson.com/products/images/mobile-accessories/Apple%20AirPods%20Pro/1.webp" },
+    { "src": "https://cdn.dummyjson.com/products/images/mobile-accessories/Apple%20MagSafe%20Battery%20Pack/1.webp" },
+    { "src": "https://cdn.dummyjson.com/products/images/mobile-accessories/Apple%20USB%20C%20Charge%20Cable%20(1%20m)/1.webp" }
+  ],
+  "body_html": "Wireless gamepad with vibration feedback and multi-platform support. Compatible with PS4, PS5, Xbox, PC and mobile devices.",
+  "rating": 4.5,
+  "reviewCount": 75,
+  "originalPrice": 1160,
+  "sourceSystem": "Shopify"
+}

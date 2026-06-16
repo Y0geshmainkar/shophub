@@ -1,0 +1,144 @@
+@use '../../styles/tokens' as *;
+
+.page {
+  min-height: 100vh;
+  background: $off-white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: $space-xl $space-md;
+}
+
+.card {
+  background: $white;
+  border-radius: $radius-lg;
+  box-shadow: $shadow-modal;
+  padding: $space-xl;
+  width: 100%;
+  max-width: 460px;
+}
+
+// ── Stepper ────────────────────────────────────────────────────────────────
+.stepper {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  margin-bottom: $space-xl;
+}
+
+.stepItem {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex: 1;
+  position: relative;
+}
+
+.circle {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  border: 2px solid $border-color;
+  background: $white;
+  color: $slate-mid;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 13px;
+  font-weight: 600;
+  z-index: 1;
+}
+
+.stepLabel {
+  font-size: 11px;
+  color: $slate-mid;
+  margin-top: $space-xs;
+  white-space: nowrap;
+}
+
+.line {
+  position: absolute;
+  top: 15px;
+  left: 50%;
+  width: 100%;
+  height: 2px;
+  background: $border-color;
+  z-index: 0;
+}
+
+.active {
+  .circle { background: $primary; border-color: $primary; color: $white; }
+  .stepLabel { color: $primary; font-weight: 600; }
+}
+
+.done {
+  .circle { background: $forest; border-color: $forest; color: $white; }
+  .line   { background: $forest; }
+  .stepLabel { color: $forest; }
+}
+
+// ── Form ──────────────────────────────────────────────────────────────────
+.title {
+  font-size: 22px;
+  font-weight: 700;
+  color: $dark;
+  text-align: center;
+  margin-bottom: $space-lg;
+}
+
+.fields { display: flex; flex-direction: column; gap: $space-md; margin-bottom: $space-lg; }
+
+.row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: $space-md;
+  @media (max-width: 480px) { grid-template-columns: 1fr; }
+}
+
+.actions { display: flex; justify-content: flex-end; gap: $space-sm; margin-top: $space-lg; }
+
+// ── Password strength ──────────────────────────────────────────────────────
+.strengthWrap { display: flex; align-items: center; gap: $space-sm; margin-top: 6px; }
+
+.strengthBar {
+  flex: 1;
+  height: 4px;
+  background: $border-color;
+  border-radius: $radius-pill;
+  overflow: hidden;
+}
+
+.fill {
+  height: 100%;
+  border-radius: $radius-pill;
+  transition: width 0.3s, background 0.3s;
+  &.s1 { width: 33%; background: $primary; }
+  &.s2 { width: 66%; background: $star; }
+  &.s3 { width: 100%; background: $forest; }
+}
+
+.strengthLabel { font-size: 11px; color: $slate-mid; white-space: nowrap; }
+
+// ── Summary ────────────────────────────────────────────────────────────────
+.summary {
+  background: $off-white;
+  border-radius: $radius-sm;
+  padding: $space-md;
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: $space-xs $space-md;
+  margin-bottom: $space-md;
+
+  dt { font-size: 12px; font-weight: 600; color: $slate-mid; text-transform: uppercase; letter-spacing: 0.04em; }
+  dd { font-size: 14px; color: $dark; }
+}
+
+// ── Misc ───────────────────────────────────────────────────────────────────
+.hint {
+  text-align: center;
+  font-size: 13px;
+  color: $slate-mid;
+  margin-top: $space-md;
+
+  a { color: $primary; font-weight: 500; }
+}

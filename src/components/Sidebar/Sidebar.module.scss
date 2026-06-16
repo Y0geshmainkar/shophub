@@ -1,0 +1,48 @@
+@use '../../styles/tokens' as *;
+
+.sidebar {
+  width: $sidebar-width;
+  flex-shrink: 0;
+  border-right: 1px solid $border-color;
+  padding: $space-lg 0;
+}
+
+.title {
+  font-size: 16px;
+  font-weight: 600;
+  color: $dark;
+  padding: 0 $space-lg $space-md;
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+}
+
+.item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: 10px $space-lg;
+  font-size: 14px;
+  color: $dark2;
+  background: transparent;
+  text-align: left;
+  transition: all 0.15s;
+
+  svg { color: $slate-mid; opacity: 0; transition: opacity 0.15s; }
+
+  &:hover {
+    color: $primary;
+    svg { opacity: 1; color: $primary; }
+  }
+
+  &:focus-visible { outline: $focus-outline; outline-offset: -2px; }
+}
+
+.active {
+  color: $primary;
+  font-weight: 500;
+  svg { opacity: 1; color: $primary; }
+}
