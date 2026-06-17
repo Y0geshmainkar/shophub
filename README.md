@@ -1,8 +1,32 @@
 # ShopHub
 
-A frontend demo of an enterprise e-commerce portal built with React 18, Redux Toolkit, TanStack Query, and TypeScript. Demonstrates real-world architecture patterns including a backend data-normalization layer, secure checkout UX, protected routes, and accessibility.
+A full-featured frontend e-commerce portal demo built to showcase enterprise-grade React architecture. Implements real-world patterns including a data normalization layer that reconciles two incompatible backend schemas (Shopify-like and ERP), a multi-step checkout wizard, protected routes with authentication, and accessible UI components — following the same architectural discipline used in production-scale applications.
 
-🚀 **Live Demo:** https://y0geshmainkar.github.io/shophub/
+🚀 **Live Demo:** https://y0geshmainkar.github.io/shophub/  
+📦 **Repo:** https://github.com/Y0geshmainkar/shophub
+
+---
+
+## What I Built
+
+- **Product Catalog** — dynamic category filtering and keyword search powered by Redux state; product grid with discount badges, wishlist, and hover-reveal Add to Cart
+- **Product Detail** — multi-image gallery with thumbnail switcher, quantity stepper with stock validation, source system badge (Shopify / ERP), and related products
+- **Shopping Cart** — persisted to `localStorage` via Redux middleware; line-item quantity control, tax calculation, coupon input
+- **4-Step Checkout Wizard** — Shipping address form → Payment (Credit Card or Bank Draft) → Order Review → Confirmation; full field validation at each step
+- **Order History** — fetches and normalizes order data via TanStack Query; status badges (pending / confirmed / shipped / delivered)
+- **Registration Flow** — 3-step wizard with password strength meter, field validation, and Redux auth state
+- **Protected Routes** — `/checkout` and `/orders` redirect unauthenticated users to registration
+- **Global Loading Overlay** — reacts to any active TanStack Query fetch or mutation automatically
+
+---
+
+## Key Engineering Decisions
+
+**Normalization Layer** — Products come from two incompatible source systems. A `normalizers.ts` adapter detects the schema automatically and maps both into a single `Product` type before data enters the component tree. Components never touch raw API shapes.
+
+**State Separation** — TanStack Query owns all server state (loading, caching, error). Redux owns only client state (cart, active filters, auth). This keeps the store lean and avoids redundant cache management.
+
+**Data Flow discipline** — All fetches go through `apiClient` (Axios instance with interceptors) → service functions → TanStack Query hooks → normalized types → components. No raw `fetch()` or inline axios calls anywhere.
 
 ---
 
@@ -11,13 +35,26 @@ A frontend demo of an enterprise e-commerce portal built with React 18, Redux To
 | Layer | Technology |
 |---|---|
 | UI | React 18 + TypeScript + Vite |
-| State | Redux Toolkit (cart, filters, auth) |
-| Server State | TanStack Query (useQuery, useMutation) |
+| Client State | Redux Toolkit — cart, filters, auth |
+| Server State | TanStack Query — useQuery, useMutation |
 | HTTP | Axios with interceptors |
-| Styles | SCSS Modules + design tokens |
-| Tests | Jest + React Testing Library |
-| Components | Storybook |
+| Styles | SCSS Modules + design tokens (`_tokens.scss`) |
+| Tests | Jest + React Testing Library (44 tests) |
+| Component Docs | Storybook |
 | CI/CD | GitHub Actions → GitHub Pages |
+
+---
+
+## Pages & Routes
+
+| Route | Description | Auth |
+|---|---|---|
+| `/` | Product catalog — search, filter, grid | Public |
+| `/product/:id` | Product detail — gallery, stepper, related | Public |
+| `/cart` | Cart — line items, totals, coupon | Public |
+| `/checkout` | 4-step checkout wizard | 🔒 Protected |
+| `/orders` | Order history with status badges | 🔒 Protected |
+| `/register` | 3-step registration wizard | Public |
 
 ---
 
@@ -26,40 +63,18 @@ A frontend demo of an enterprise e-commerce portal built with React 18, Redux To
 ```
 public/localJson/*.json
        ↓
-  apiClient.ts        ← Axios instance
+  apiClient.ts        ← Axios instance + interceptors
        ↓
-  services/*.ts       ← calls apiClient
+  services/*.ts       ← productService, cartService, orderService
        ↓
-  normalizers.ts      ← adapts two source schemas → normalized type
+  normalizers.ts      ← Shopify schema + ERP schema → Product type
        ↓
-  TanStack Query      ← caches, loading/error states
+  TanStack Query      ← caching, loading, error states
        ↓
-  Redux slices        ← cart, filters, auth (client state only)
+  Redux slices        ← cart, productsSlice, authSlice
        ↓
   Components          ← consume normalized types only
 ```
-
-Two incompatible source schemas are normalized into one `Product` type:
-
-| Field | Shopify-like | ERP |
-|---|---|---|
-| ID | `product_id` | `itemCode` |
-| Name | `title` | `itemName` |
-| Price | `variants[0].price` | `unitPrice` |
-| Stock | `inventory_quantity` | `stockLevel` |
-
----
-
-## Pages
-
-| Route | Description | Auth |
-|---|---|---|
-| `/` | Product catalog with search + category filter | Public |
-| `/product/:id` | Product detail with image gallery + qty stepper | Public |
-| `/cart` | Cart with line items, totals, coupon input | Public |
-| `/checkout` | 4-step wizard: Shipping → Payment → Review → Confirm | 🔒 |
-| `/orders` | Order history with status badges | 🔒 |
-| `/register` | 3-step registration wizard | Public |
 
 ---
 
@@ -67,15 +82,10 @@ Two incompatible source schemas are normalized into one `Product` type:
 
 ```bash
 npm install
-npm run dev
-```
-
-### Other commands
-
-```bash
-npm test              # Run Jest tests (44 tests)
-npm run storybook     # Launch Storybook on :6006
-npm run build         # Production build
+npm run dev        # Dev server at localhost:5173
+npm test           # Run 44 Jest/RTL tests
+npm run storybook  # Component library at localhost:6006
+npm run build      # Production build
 ```
 
 ---
@@ -86,20 +96,20 @@ npm run build         # Production build
 src/
 ├── api/            # Axios instance + interceptors
 ├── services/       # productService, cartService, orderService
-├── data/           # normalizers.ts (Shopify + ERP → Product)
-├── types/          # Product, CartEntry, Order interfaces
-├── store/          # Redux slices: cart, products, auth
-├── components/     # Reusable UI components + Storybook stories
-├── pages/          # Route-level page components
-└── styles/         # SCSS tokens + global styles
+├── data/           # normalizers.ts — dual-schema normalization
+├── types/          # Product, CartEntry, Order — strict TypeScript
+├── store/          # Redux: cartSlice, productsSlice, authSlice
+├── components/     # Reusable components + Storybook stories
+├── pages/          # Catalog, ProductDetail, Cart, Checkout, Orders, Register
+└── styles/         # SCSS design tokens + global reset
 ```
 
 ---
 
 ## CI/CD
 
-On every push to `master`:
-1. **Test** — runs all Jest tests
-2. **Build & Deploy** — builds and deploys to GitHub Pages
+Every push to `master` triggers:
+1. **Test job** — installs dependencies, runs all Jest tests
+2. **Build & Deploy job** — production build deployed to GitHub Pages
 
-> Enable in repo: **Settings → Pages → Source → GitHub Actions**
+> Enable: **GitHub repo → Settings → Pages → Source → GitHub Actions**
